@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOHN PATRICK A. HIDALGO | Portfolio</title>
+  <style>
+    /* Reset and core styles */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4a90e2 0%, #145673 100%);
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit;}
+    /* Navbar */
+    nav {
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul { 
+      list-style: none; display: flex; gap: 35px; 
+      padding: 15px 0;
+    }
+    nav li a {
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 1.1em;
+      color: #2266a3;
+      transition: color 0.15s;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+    nav li a:hover, nav li a.active {
+      background: #2266a3;
+      color: #fff;
+    }
+    /* Landing / Home Section */
+    #home {
+      min-height:70vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color: #fff;
+      background: linear-gradient(125deg, #2266a3 50%, #64b0e8 100%);
+      border-bottom:6px solid #2266a3;
+    }
+    #home h1 {
+      font-size: 2.7em;
+      margin-bottom: 15px;
+      letter-spacing: 1.5px;
+    }
+    #home h2 {
+      font-weight:400;
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+    #home p {
+      max-width:460px;
+      font-size:1.03em;
+      margin:0 auto 22px auto;
+      opacity:.93;
+    }
+    .btn-main {
+      display: inline-block;
+      background: #fff;
+      color: #2266a3;
+      padding: 12px 35px;
+      font-weight: bold;
+      letter-spacing: .6px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 8px;
+      font-size: 1.1em;
+      box-shadow: 0 0 10px rgba(34,102,163,0.13);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    .btn-main:hover {
+      background: #2266a3;
+      color: #fff;
+    }
+
+    /* Section Block */
+    section {
+      padding:55px 24px 40px 24px;
+      max-width:850px;
+      margin:0 auto 30px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow:0 4px 32px 0 rgba(68, 102, 163,0.08);
+      margin-top: 50px;
+    }
+
+    /* About/CV Section */
+    #about h2 {
+      color: #2266a3;
+      margin-bottom:15px;
+      font-size: 2em;
+      letter-spacing:1px;
+    }
+    .cv-section {
+      font-size:1.09em;
+      margin-top:7px;
+      color:#365674;
+      line-height:1.8;
+      max-width:600px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .cv-section ul {
+      margin: 12px 0 12px 25px;
+      padding-left:0;
+    }
+    .cv-section li {
+      margin-bottom: 5px;
+    }
+    .cv-table {
+      width:100%;
+      border-collapse:collapse;
+      margin-bottom: 10px;
+    }
+    .cv-table th, .cv-table td {
+      text-align:left;
+      padding:6px 10px;
+      vertical-align:top;
+    }
+    .cv-table th {
+      width: 110px;
+      color:#2266a3;
+      font-weight:bold;
+      background: #f5f8fa;
+    }
+
+    /* Contact Section */
+    #contact h2 {
+      color: #2266a3;
+      font-size:2em;
+      margin-bottom: 20px;
+      letter-spacing:1px;
+    }
+    .contact-info {
+      max-width: 500px;
+      margin:0 auto;
+    }
+    .contact-info p {
+      font-size: 1.1em;
+      margin-bottom:12px;
+      color: #365674;
+    }
+    .contact-card {
+      background: #f7fbfd;
+      padding: 25px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(34,102,163,0.07);
+      margin-bottom: 17px;
+    }
+    .contact-label {
+      font-weight:600; color:#2266a3;
+    }
+    .contact-link {
+      color:#0072f0;
+      word-break: break-all;
+    }
+
+    /* Footer */
+    footer {
+      text-align:center;
+      color:#eee;
+      padding:36px 0 15px 0;
+      font-size:0.95em;
+      letter-spacing:0.4px;
+      background: none;
+    }
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      nav ul { gap:14px; padding: 10px 0;}
+      #home h1 { font-size:1.5em;}
+      section { margin-top: 36px;}
+      #about h2, #contact h2 {font-size:1.3em;}
+      .btn-main{ padding:10px 22px; font-size:1em;}
+      .cv-section {font-size:1em;}
+    }
+  </style>
+  <script>
+    // Navigation highlight on scroll (active link)
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll("section, #home");
+      const navLinks = document.querySelectorAll("nav ul li a");
+      function setActiveLink() {
+        let index = sections.length;
+        while(--index && window.scrollY + 54 < sections[index].offsetTop) {}
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+      setActiveLink();
+      window.addEventListener("scroll", setActiveLink);
+    });
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">HOME</a></li>
+      <li><a href="#about">ABOUT ME</a></li>
+      <li><a href="#contact">CONTACT ME</a></li>
+    </ul>
+  </nav>
+
+  <!-- Landing Page/Home -->
+  <section id="home" style="box-shadow:none; border-radius:0; margin-top:0; padding:80px 18px 60px;">
+    <h1>JOHN PATRICK A. HIDALGO</h1>
+    <h2>BSIT Major in Database Systems<br>Graduate of MSU - Buug</h2>
+    <p>
+      Welcome to my portfolio! I'm a recent graduate of Mindanao State University - Buug, holding a degree in Bachelor of Science in Information Technology majoring in Database Systems. Explore to learn more about my background, skills, and how to contact me.
+    </p>
+    <a class="btn-main" href="#about">View My CV</a>
+  </section>
+
+  <!-- ABOUT ME / CV Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="cv-section">
+      <table class="cv-table">
+        <tr>
+          <th>Name</th>
+          <td>John Patrick A. Hidalgo</td>
+        </tr>
+        <tr>
+          <th>Education</th>
+          <td>
+            Mindanao State University – Buug<br>
+            Bachelor of Science in Information Technology<br>
+            Major in Database Systems<br>
+            Graduated: 2025
+          </td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>crazymejohn@gmail.com</td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td>0951 049 7182</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>Zamboanga Sibugay, Philippines</td>
+        </tr>
+      </table>
+      <b>Key Skills:</b>
+      <ul>
+        <li>Database Design &amp; Administration (MySQL, SQL Server)</li>
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>System Analysis &amp; Design</li>
+        <li>Problem Solving &amp; Logical Thinking</li>
+      </ul>
+      <b>Personal Overview:</b>
+      <p>
+        Passionate about building reliable, user-friendly database-driven systems. I thrive on collaborating with teams to architect robust solutions that streamline information management. With solid training in IT and hands-on database experience, I am eager to contribute to your organization’s success!
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT ME Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <div class="contact-card">
+        <span class="contact-label">Phone:</span>
+        <br>
+        <a href="tel:09510497182" class="contact-link">0951 049 7182</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-label">Email:</span>
+        <br>
+        <a href="mailto:crazymejohn@gmail.com" class="contact-link">crazymejohn@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-label">Location:</span>
+        <br>
+        Zamboanga Sibugay, Philippines
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 John Patrick A. Hidalgo. All rights reserved.
+  </footer>
+</body>
+</html>
